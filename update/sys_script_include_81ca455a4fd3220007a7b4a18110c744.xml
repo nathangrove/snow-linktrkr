@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_60972_link.GeoLookup</api_name>
+        <client_callable>false</client_callable>
+        <description>Lookup geo data for a given IP</description>
+        <name>GeoLookup</name>
+        <script><![CDATA[var GeoLookup = Class.create();
+GeoLookup.prototype = {	
+    initialize: function(ip) {
+		var iplong_array = ip.split(".");
+		this.iplong = 0;
+		for (var i=0;i<iplong_array.length;i++) {
+			var power = 3-i;            
+			this.iplong += ((parseInt(iplong_array[i]) % 256) * Math.pow(256,power));        
+		}
+
+		var geodata = new GlideRecord('x_60972_link_geodata');
+		geodata.addQuery('start','<=',this.iplong);
+		geodata.addQuery('end','>=',this.iplong);
+		geodata.query();
+		geodata.next();
+		this.country = geodata.getValue('country');
+    },
+
+    type: 'GeoLookup'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2016-11-27 04:35:40</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>81ca455a4fd3220007a7b4a18110c744</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>GeoLookup</sys_name>
+        <sys_package display_value="Link Tracker" source="x_60972_link">197624de4f93220007a7b4a18110c7d6</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Link Tracker">197624de4f93220007a7b4a18110c7d6</sys_scope>
+        <sys_update_name>sys_script_include_81ca455a4fd3220007a7b4a18110c744</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2016-11-27 04:35:40</sys_updated_on>
+    </sys_script_include>
+</record_update>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Conversion" max_length="40" name="x_60972_link_conversion" type="collection">
+        <element label="Click" max_length="32" name="click" reference="x_60972_link_click" type="reference"/>
+        <element label="IP" max_length="16" name="ip" type="string"/>
+        <element label="Value" max_length="40" name="value" type="float"/>
+        <index name="index">
+            <element name="click"/>
+        </index>
+    </element>
+</database>

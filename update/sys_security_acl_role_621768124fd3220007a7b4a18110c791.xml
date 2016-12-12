@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_security_acl_role">
+    <sys_security_acl_role action="INSERT_OR_UPDATE">
+        <sys_class_name>sys_security_acl_role</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2016-11-27 01:52:47</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>621768124fd3220007a7b4a18110c791</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_60972_link_link.x_60972_link_link_user</sys_name>
+        <sys_package display_value="Link Tracker" source="x_60972_link">197624de4f93220007a7b4a18110c7d6</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Link Tracker">197624de4f93220007a7b4a18110c7d6</sys_scope>
+        <sys_security_acl display_value="x_60972_link_link">261768124fd3220007a7b4a18110c790</sys_security_acl>
+        <sys_update_name>sys_security_acl_role_621768124fd3220007a7b4a18110c791</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2016-11-27 01:52:47</sys_updated_on>
+        <sys_user_role display_value="x_60972_link_link_user" name="x_60972_link_link_user">9617a8124f53220007a7b4a18110c712</sys_user_role>
+        <transaction_id/>
+    </sys_security_acl_role>
+</record_update>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Link M2m Links Campaigns" max_length="40" name="x_60972_link_m2m_links_campaigns" type="collection">
+        <element label="Campaign" max_length="32" name="campaign" reference="x_60972_link_campaign" type="reference"/>
+        <element label="Link" max_length="32" name="link" reference="x_60972_link_link" type="reference"/>
+        <index name="index">
+            <element name="link"/>
+        </index>
+        <index name="index2">
+            <element name="campaign"/>
+        </index>
+    </element>
+</database>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Click" max_length="40" name="x_60972_link_click" type="collection">
+        <element label="Browser" max_length="40" name="browser" type="string"/>
+        <element label="Campaign" max_length="32" name="campaign" reference="x_60972_link_campaign" type="reference"/>
+        <element label="Cost" max_length="40" name="cost" type="float"/>
+        <element label="Country" max_length="32" name="country" reference="x_60972_link_country" type="reference"/>
+        <element label="Fingerprint" max_length="32" name="fingerprint" type="string"/>
+        <element label="IP" max_length="16" name="ip" type="string"/>
+        <element label="Link" max_length="32" name="link" reference="x_60972_link_link" type="reference"/>
+        <element label="OS" max_length="40" name="os" type="string"/>
+        <element label="Redirect Campaign" max_length="32" name="redirect_campaign" reference="x_60972_link_campaign" type="reference"/>
+        <element label="Redirected from" max_length="32" name="redirect_from" reference="x_60972_link_click" type="reference"/>
+        <element label="Redirect Link" max_length="32" name="redirect_link" reference="x_60972_link_link" type="reference"/>
+        <element label="Referrer" max_length="10000" name="referrer" type="string"/>
+        <element label="User Agent" max_length="1000" name="user_agent" type="string"/>
+        <index name="index">
+            <element name="country"/>
+        </index>
+        <index name="index2">
+            <element name="redirect_link"/>
+        </index>
+        <index name="index3">
+            <element name="redirect_campaign"/>
+        </index>
+        <index name="index4">
+            <element name="redirect_from"/>
+        </index>
+        <index name="index5">
+            <element name="link"/>
+        </index>
+        <index name="index6">
+            <element name="campaign"/>
+        </index>
+    </element>
+</database>

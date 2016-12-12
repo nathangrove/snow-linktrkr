@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="GeoData" max_length="40" name="x_60972_link_geodata" sizeclass="6539" type="collection">
+        <element label="Country" max_length="32" name="country" reference="x_60972_link_country" type="reference"/>
+        <element label="End" max_length="40" name="end" type="integer"/>
+        <element label="Start" max_length="40" name="start" type="integer"/>
+        <index name="index">
+            <element name="country"/>
+        </index>
+    </element>
+</database>

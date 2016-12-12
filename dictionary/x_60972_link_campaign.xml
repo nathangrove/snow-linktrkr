@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Campaign" max_length="40" name="x_60972_link_campaign" type="collection">
+        <element default="True" label="Blank the Referrer?" max_length="40" name="blank_referer" type="boolean"/>
+        <element choice="1" default="IE,FIREFOX,CHROME,SAFARI,OPERA,OTHER" label="Browser" max_length="40" name="browser" type="choice">
+            <choice>
+                <element label="Chrome" value="CHROME"/>
+                <element label="Firefox" value="FIREFOX"/>
+                <element label="Internet Explorer" value="IE"/>
+                <element label="Opera" value="OPERA"/>
+                <element label="Other" value="OTHER"/>
+                <element label="Safari" value="SAFARI"/>
+            </choice>
+        </element>
+        <element label="Country" max_length="4000" name="country" reference="x_60972_link_country" type="glide_list"/>
+        <element default="SUN,MON,TUES,WED,THURS,FRI,SAT" label="Day Of Week" max_length="4000" name="day_of_week" type="glide_list"/>
+        <element label="Description" max_length="40" name="description" type="string"/>
+        <element choice="1" default="DESKTOP,MOBILE,TABLET,OTHER" label="Device" max_length="40" name="device" type="glide_list">
+            <choice>
+                <element label="Desktop" value="DESKTOP"/>
+                <element label="Mobile" value="MOBILE"/>
+                <element label="Other" value="OTHER"/>
+                <element label="Tablet" value="TABLET"/>
+            </choice>
+        </element>
+        <element default="True" label="Apply Browser filter?" max_length="40" name="filter_browser" type="boolean"/>
+        <element default="False" label="Apply Country Filter?" max_length="40" name="filter_country" type="boolean"/>
+        <element default="False" label="Apply Device Filter?" max_length="40" name="filter_device" type="boolean"/>
+        <element default="False" label="Apply OS Filter?" max_length="40" name="filter_os" type="boolean"/>
+        <element default="False" label="Check time?" max_length="40" name="filter_time" type="boolean"/>
+        <element default="False" label="Fingerprint the browser?" max_length="40" name="fingerprint" type="boolean"/>
+        <element default="24" label="Hour End" max_length="40" name="hour_end" type="integer"/>
+        <element default="0" label="Hour Start" max_length="40" name="hour_start" type="integer"/>
+        <element display="true" label="Name" max_length="40" name="name" type="string"/>
+        <element choice="1" default="IOS,ANDROID,WINDOWS,OSX,LINUX,OTHER" label="OS" max_length="40" name="os" type="glide_list">
+            <choice>
+                <element label="Android" value="ANDROID"/>
+                <element label="iOS" value="IOS"/>
+                <element label="Linux" value="LINUX"/>
+                <element label="OSX" value="OSX"/>
+                <element label="Other" value="OTHER"/>
+                <element label="Windows" value="WINDOWS"/>
+            </choice>
+        </element>
+        <element label="Redirect Link" max_length="32" name="redirect_link" reference="x_60972_link_link" type="reference"/>
+        <element default="False" label="Strict Mobile Check?" max_length="40" name="strict_mobile_check" type="boolean"/>
+        <index name="index">
+            <element name="redirect_link"/>
+        </index>
+    </element>
+</database>

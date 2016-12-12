@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_ws_operation">
+    <sys_ws_operation action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <consumes>application/json,application/xml,text/xml</consumes>
+        <consumes_customized>false</consumes_customized>
+        <default_operation_uri/>
+        <enforce_acl/>
+        <http_method>GET</http_method>
+        <name>Click</name>
+        <operation_script><![CDATA[(function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+
+  // get the campaign
+  var campaign = new GlideRecord('x_60972_link_campaign');
+  campaign.get(request.pathParams.campaign);
+
+  // get the link
+  var link = new GlideRecord('x_60972_link_campaign');
+  link.get(request.pathParams.link);
+
+  // get the browser/platform info
+  var ua = new UAParser(request.headers['user-agent']);
+
+  // get the geo data
+  var geo = new GeoLookup(request.headers['x-forwarded-for']);
+return geo.country;
+  // use cookies to try and determine a fingerprint
+  var fingerprint = false;
+  var cookies = request.headers['cookies'];
+  cookies = cookies.split("&");
+  for (var i=0; i < cookies.length; i++)
+    if (cookies[i].split('=')[0] == 'f') fingerprint = cookies[i].split('=')[1];
+
+  // insert the link
+  var click = new GlideRecord('x_60972_link_click');
+  click.campaign = campaign.getValue('sys_id');
+  click.link = link.getValue('sys_id');
+  click.cost = link.cost;
+  click.referrer = request.headers['referer'];
+  click.ip = request.headers['x-forwarded-for'];
+  click.browser = JSON.stringify(ua.getBrowser());
+  click.OS = JSON.stringify(ua.getOS());
+  click.country = geo.country;
+  click.device = JSON.stringify(ua.getDevice());
+  if (fingerprint && campaign.getValue('fingerprint')) click.fingerprint = fingerprint;
+  if (request.queryParams.c !== '') click.redirect_from = request.queryParams.c;
+  click.user_agent = request.headers['user-agent'];
+  click.redirect_link = campaign.getValue('redirect_link');
+  click.redirect_campaign = campaign.getValue('redirect_campaign');
+  click.insert();
+
+  // now that we have all of the data...let's verify everything is good...
+
+  // country first...
+  var redirect = false;
+  if (campaign.getValue('filter_country')){
+    if (campaign.indexOf(geo.country) == -1)
+      redirect = true;
+  }
+
+  // then device...
+  if (!redirect && campaign.getValue('filter_device') && campaign.getValue('device') != ''){
+    var devices = campaign.getValue('device').toUpperCase().split(',');
+    var device = ua.getDevice();
+
+    if ((device.type == null || device.type == 'desktop') && devices.indexOf('DESKTOP') == -1)
+      redirect = true;
+    else if (devices.indexOf(device.type.toUpperCase()) == -1)
+      redirect = true;
+  }
+
+  // filter os
+  if (!redirect && campaign.getValue('filter_os') && campaign.getValue('os') !== ''){
+    var oses = campaign.getValue('os').toUpperCase().split(',');
+    var os = ua.getOs();
+
+    if (os.name == null) redirect = true;
+    else if (oses.indexOf(os.toUpperString()) == -1) redirect = true;
+  }
+
+  // filter browser...
+  if (!redirect && campaign.getValue('filter_browser') && campaign.getValue('browser') !== ''){
+    var browsers = campaign.getValue('browser').toUpperCase().split(',');
+    var browser = ua.getBrowser();
+
+    if (browser.name == null) redirect = true;
+    else if (browsers.indexOf(browser.toUpperString()) == -1) redirect = true;
+  }
+
+  // filter hour and dow
+  var current_hour = newDate().getHours();
+  var dow = new Date().getDay();
+  var map = ['SUN','MON','TUES','WED','THURS','FRI','SAT'];
+  if (campaign.getValue('filter_time') && (campaign.getValue('hour_start') > current_hour || campaign.getValue('hour_end') <= current_hour || campaign.getValue('day_of_week').split(',').indexOf(map.indexOf(dow)) == -1))
+    redirect = true;
+
+
+  // let's start our response
+  var redirect_url = "/api/x_60972_link_click/" + click.redirect_camp + "/" + click.redirect_link + "?c=" + click.getValue('sys_id');
+  var destination_url = link.getValue('url');
+  var click_sys_id = click.getValue('sys_id');
+   
+  // no redirect...and no referer blanking and not strict mobile checking...let's just do a server side redirect...
+  if (!redirect && !campaign.getValue('blank_referer') && !campaign.getValue('strict_mobile_check')){
+    response.setHeader("Location",destination);
+    return;
+  }
+
+  // there is a redirect...then let's do a server side redirect
+  if (redirect){
+    response.setHeader('Location',redirect_url);
+    return;
+  }
+
+
+
+  // if we couldn't do server side...then we need to do client side redirect....spit out the HTML...
+  var html = [];
+  html.push("<html>");
+  html.push("  <head>");
+  if (campaign.getValue('blank_referer')) html.push('     <meta name="referrer" content="no-referrer" />');
+  if (campaign.getValue('strict_mobile_check')) html.push("    <script>var mobile = true;</script>");
+  if (campaign.getValue('fingerprint')) html.push("    <script>var finger = true;</script>");
+  html.push("    <script>var redirect='" + redirect_url + "',destination='" + destination_url + "',click='" + click_sys_id + "'</script>");
+  html.push("    <script src='/x_60972_link.redir.jsdbx'></script>");
+  html.push("  </head>");
+  html.push("  <body>");
+  html.push("  </body>");
+  html.push("</html>");
+
+  response.setHeader('Content-type','text/html');
+  var writer = response.getStreamWriter();
+  writer.write(html.join('\n'));
+  return;
+
+
+})(request, response);
+]]></operation_script>
+        <operation_uri>/api/x_60972_link/link/{campaign}</operation_uri>
+        <produces>application/json,application/xml,text/xml</produces>
+        <produces_customized>false</produces_customized>
+        <relative_path>/{campaign}</relative_path>
+        <request_example/>
+        <requires_acl_authorization>false</requires_acl_authorization>
+        <requires_authentication>false</requires_authentication>
+        <short_description/>
+        <sys_class_name>sys_ws_operation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2016-11-27 02:42:22</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>0e3fac924fd3220007a7b4a18110c7db</sys_id>
+        <sys_mod_count>27</sys_mod_count>
+        <sys_name>Click</sys_name>
+        <sys_package display_value="Link Tracker" source="x_60972_link">197624de4f93220007a7b4a18110c7d6</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Link Tracker">197624de4f93220007a7b4a18110c7d6</sys_scope>
+        <sys_update_name>sys_ws_operation_0e3fac924fd3220007a7b4a18110c7db</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2016-11-28 17:04:57</sys_updated_on>
+        <web_service_definition display_value="Link">a2ce6c924fd3220007a7b4a18110c70a</web_service_definition>
+        <web_service_version/>
+    </sys_ws_operation>
+</record_update>

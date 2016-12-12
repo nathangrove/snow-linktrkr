@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Link" max_length="40" name="x_60972_link_link" type="collection">
+        <element label="Average CPC ($0.00)" max_length="40" name="average_cpc_0_00" type="float"/>
+        <element label="Name" max_length="40" name="name" type="string"/>
+        <element label="URL" max_length="5000" name="url" type="string"/>
+    </element>
+</database>

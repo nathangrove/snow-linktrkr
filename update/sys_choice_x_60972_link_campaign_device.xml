@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="device" table="x_60972_link_campaign" version="3">
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>device</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Desktop</label>
+            <language>en</language>
+            <name>x_60972_link_campaign</name>
+            <sequence/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2016-11-28 13:19:43</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>b5ed00764f9b220007a7b4a18110c7b3</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2016-11-28 13:19:47</sys_updated_on>
+            <value>DESKTOP</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>device</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Mobile</label>
+            <language>en</language>
+            <name>x_60972_link_campaign</name>
+            <sequence/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2016-11-28 13:19:50</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>8bedcc364f9b220007a7b4a18110c78a</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2016-11-28 13:19:54</sys_updated_on>
+            <value>MOBILE</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>device</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Other</label>
+            <language>en</language>
+            <name>x_60972_link_campaign</name>
+            <sequence/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2016-11-28 13:20:09</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>73fd80764f9b220007a7b4a18110c725</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2016-11-28 13:20:13</sys_updated_on>
+            <value>OTHER</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>device</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Tablet</label>
+            <language>en</language>
+            <name>x_60972_link_campaign</name>
+            <sequence/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2016-11-28 13:20:02</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>f8fd4c364f9b220007a7b4a18110c738</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2016-11-28 13:20:06</sys_updated_on>
+            <value>TABLET</value>
+        </sys_choice>
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>device</element>
+            <name>x_60972_link_campaign</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2016-11-28 13:19:43</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>beed0c364f9b220007a7b4a18110c789</sys_id>
+            <sys_mod_count>9</sys_mod_count>
+            <sys_name>device</sys_name>
+            <sys_package display_value="Link Tracker" source="x_60972_link">197624de4f93220007a7b4a18110c7d6</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Link Tracker">197624de4f93220007a7b4a18110c7d6</sys_scope>
+            <sys_update_name>sys_choice_x_60972_link_campaign_device</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2016-12-02 17:40:16</sys_updated_on>
+        </sys_choice_set>
+    </sys_choice>
+</record_update>

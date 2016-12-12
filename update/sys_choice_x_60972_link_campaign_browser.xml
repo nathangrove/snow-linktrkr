@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="browser" table="x_60972_link_campaign" version="3">
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>browser</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Chrome</label>
+            <language>en</language>
+            <name>x_60972_link_campaign</name>
+            <sequence/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2016-11-28 13:17:14</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>cb4dc8364f9b220007a7b4a18110c7b4</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2016-11-28 13:17:18</sys_updated_on>
+            <value>CHROME</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>browser</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Firefox</label>
+            <language>en</language>
+            <name>x_60972_link_campaign</name>
+            <sequence/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2016-11-28 13:16:59</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>033d48364f9b220007a7b4a18110c7dc</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2016-11-28 13:17:07</sys_updated_on>
+            <value>FIREFOX</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>browser</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Internet Explorer</label>
+            <language>en</language>
+            <name>x_60972_link_campaign</name>
+            <sequence/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2016-11-28 13:16:42</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>183d88364f9b220007a7b4a18110c79b</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2016-11-28 13:16:50</sys_updated_on>
+            <value>IE</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>browser</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Opera</label>
+            <language>en</language>
+            <name>x_60972_link_campaign</name>
+            <sequence/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2016-11-28 13:17:34</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>e96d0c364f9b220007a7b4a18110c7aa</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2016-11-28 13:17:38</sys_updated_on>
+            <value>OPERA</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>browser</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Other</label>
+            <language>en</language>
+            <name>x_60972_link_campaign</name>
+            <sequence/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2016-11-28 13:17:42</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>e76d0c724f9b220007a7b4a18110c719</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2016-11-28 13:17:45</sys_updated_on>
+            <value>OTHER</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>browser</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Safari</label>
+            <language>en</language>
+            <name>x_60972_link_campaign</name>
+            <sequence/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2016-11-28 13:17:26</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>be5d4c364f9b220007a7b4a18110c789</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2016-11-28 13:17:30</sys_updated_on>
+            <value>SAFARI</value>
+        </sys_choice>
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>browser</element>
+            <name>x_60972_link_campaign</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2016-11-28 13:16:42</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>3a3dc8364f9b220007a7b4a18110c7af</sys_id>
+            <sys_mod_count>13</sys_mod_count>
+            <sys_name>browser</sys_name>
+            <sys_package display_value="Link Tracker" source="x_60972_link">197624de4f93220007a7b4a18110c7d6</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Link Tracker">197624de4f93220007a7b4a18110c7d6</sys_scope>
+            <sys_update_name>sys_choice_x_60972_link_campaign_browser</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2016-12-02 17:40:14</sys_updated_on>
+        </sys_choice_set>
+    </sys_choice>
+</record_update>
